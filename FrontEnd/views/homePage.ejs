@@ -1,0 +1,144 @@
+<%- include('partials/head') %>
+
+    <!-- Middle Section -->
+    <section class="middle_section"></section>
+
+    <% function formatTimeDifference(createdDate) { %>
+        <% const currentDate = new Date(); %>
+        <% const timeDifference = currentDate - createdDate; %>
+      
+        <% const millisecondsPerMinute = 60 * 1000; %>
+        <% const millisecondsPerHour = 60 * millisecondsPerMinute; %>
+        <% const millisecondsPerDay = 24 * millisecondsPerHour; %>
+      
+        <% const days = Math.floor(timeDifference / millisecondsPerDay); %>
+        <% const hours = Math.floor((timeDifference % millisecondsPerDay) / millisecondsPerHour); %>
+        <% const minutes = Math.floor((timeDifference % millisecondsPerHour) / millisecondsPerMinute); %>
+        <% const seconds = Math.floor((timeDifference % millisecondsPerMinute) / 1000); %>
+      
+        <% let formattedTime = ''; %>
+      
+        <% if (days > 0) { %>
+          <% formattedTime += `${days} DAY${days === 1 ? '' : 'S'}`; %>
+          <% return formattedTime; %>
+        <% } %>
+      
+        <% if (hours > 0) { %>
+          <% formattedTime += `${hours} HOUR${hours === 1 ? '' : 'S'}`; %>
+          <% return formattedTime; %>
+        <% } %>
+      
+        <% if (minutes > 0) { %>
+          <% formattedTime += `${minutes} MINUTE${minutes === 1 ? '' : 'S'}`; %>
+          <% return formattedTime; %>
+        <% } %>
+
+        <% formattedTime += `${seconds} SECONDS`; %>      
+        <% return formattedTime; %>
+      <% } %>
+      
+
+    <!-- Home Section -->
+    <section class="home_section_outer">
+        <div class="home_section">
+            <div class="left_side">
+                <div class="post_section">
+                    <% posts.forEach(function(post) { %>
+                        <div class="single_post">
+                            <!-- Post Title -->
+                            <input type="hidden" id="postDetail" value="<%= JSON.stringify(post) %>">
+                            <div class="post_title">
+                                <div class="post_title_left">
+                                    <div class="profile_image">
+                                        <img src="Images/<%= post.author.profileImage %>" alt="">
+                                    </div>
+                                    <div class="post_details">
+                                        <p class="username">
+                                            <%= post.author.userName %>
+                                        </p>
+                                        <p class="location"><%= post.author.name %></p>
+                                    </div>
+                                </div>
+                                <div class="post_title_right">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
+                            </div>
+
+                            <!-- Post content -->
+                            <div class="post_content">
+                                <img src="Images/<%= post.postContent.data %>" alt="">
+                            </div>
+
+                            <!-- Post Footer -->
+                            <div class="post_footer">
+                                <div class="like_share_comment">
+                                    <% if(post.likes.includes(admin._id)){ %>
+                                        <i class="fa-sharp fa-solid fa-heart post_<%= post._id %>_likes_btn" id="post_like_btn"  data-post="<%= JSON.stringify(post) %>" style="color: red;"></i>
+                                    <% }else{ %>
+                                        <i class="fa-regular fa-heart post_<%= post._id %>_likes_btn" id="post_like_btn" data-post="<%= JSON.stringify(post) %>"></i>
+                                    <% } %>
+                                        <i class="fa-regular fa-comment" id="viewcomment"></i>
+                                        <i class="fa-regular fa-paper-plane"></i>
+                                </div>
+                                <div class="post_save">
+                                    <% if(admin.savedPost.includes(post._id)){ %>
+                                        <i class="fa-solid fa-bookmark post_<%= post._id %>_saved_btn" id="save_btn" data-post="<%= JSON.stringify(post) %>"></i>
+                                    <% }else{ %>
+                                        <i class="fa-regular fa-bookmark post_<%= post._id %>_saved_btn" id="save_btn" data-post="<%= JSON.stringify(post) %>"></i>
+                                    <% } %>                                   
+                                    
+                                </div>
+                            </div>
+
+                            <div class="post_footer_content">
+                                <p class="likes_cnt" id="post_<%= post._id %>_likes">
+                                    <%=post.likes.length%> Likes
+                                </p>
+                                <p class="comment_cnt" id="viewcomment">View all comment</p>
+                                <p class="posting_time"><%= formatTimeDifference(post.createdAt) %> AGO</p>
+                            </div>
+
+                            <div class="add_comment">
+                                <form action="" id="post_comment_form">
+                                    <div class="add_comment_left_side">
+                                        <i class="fa-regular fa-face-smile"></i>
+                                        <input type="text" placeholder="Add a comment....." name="inputComment" autocomplete="off">
+                                    </div>
+                                    <div class="add_comment_right_side">
+                                        <input type="hidden" name="postId" value="<%= post._id %>">
+                                        <p id="post_comment_btn">Post</p>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+
+            <div class="right_side">
+
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- pop_up_section -->
+    <section class="pop_up_section"></section>
+    
+    <!-- extra popup -->
+    <section class="extra_pop_up_section"></section>
+
+    <!-- FontAwesom Icon -->
+    <script src="https://kit.fontawesome.com/e467b80794.js" crossorigin="anonymous"></script>
+    
+    <!-- Include Axios library -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>    
+    
+    <!-- Include Socket Io -->
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <script src="/javascript/newHomepage.js"></script>
+</body>
+
+</html>

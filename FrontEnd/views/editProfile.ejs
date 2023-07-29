@@ -1,0 +1,69 @@
+<%- include('partials/head') %>
+<% function formatDate(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+} %>
+
+    
+        <div class="edit_profile_outer">
+            <div class="edit_profile">
+                <h2>Edit Profile</h2>
+                <div class="change_profile">
+                    <div class="left_side">
+                        <img src="/Images/<%= admin.profileImage %>" alt="">
+                    </div>
+                    <div class="right_side">
+                        <p id="userId">
+                            <%= admin.userName %>
+                        </p>
+                        <form action="/updateProfileImage" method="post" enctype="multipart/form-data" id="profile-form">
+                            <div class="file-input-wrapper">
+                                <input type="file" id="profile-picture" name="image" />
+                                <button class="custom-file-button">Change Profile Photo</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <form action="/editProfile" method="post">
+                    <div class="form_group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" value="<%= admin.name %>" />
+                    </div>
+                    <div class="form_group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="userName" placeholder="Your username"
+                            value="<%= admin.userName %>" />
+                    </div>
+                    <div class="form_group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Your email"
+                            value="<%= admin.email %>" />
+                    </div>
+                    <div class="form_group">
+                        <label for="dob">DOB:</label>
+                        <input type="date" id="dob" name="dob" placeholder="Your D.O.B" value="<%= formatDate(admin.dob) %>" />
+                    </div>
+                    <div class="form_group">
+                        <label for="bio">Bio:</label>
+                        <textarea id="bio" name="bio" placeholder="Write something about yourself"><%= admin.bio %></textarea>
+                    </div>
+                    <input type="submit" value="Save Changes">
+                </form>
+            </div>
+        </div>
+
+        <!-- FontAwesom Icon -->
+        <script src="https://kit.fontawesome.com/e467b80794.js" crossorigin="anonymous"></script>
+
+        <!-- Include Socket Io -->
+        <script src="/socket.io/socket.io.js"></script>
+
+        <script src="/javascript/editprofilepage.js"></script>
+        <script src="/javascript/newHomepage.js"></script>
+    </body>
+
+    </html>

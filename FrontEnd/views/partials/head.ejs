@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Responsive Sidebar Menu | CodingLab </title>
+    <link rel="stylesheet" href="/css/style1.css">
+
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <input type="hidden" id="adminDetail" value="<%= JSON.stringify(admin) %>">
+    <div class="sidebar open">
+        <div class="logo-details">
+            <i class="fa-brands fa-instagram icon"></i>
+            <div class="logo_name">Instagram</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="/">
+                    <i class="fa-solid fa-house" id="open_home_section"></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-search' id="open_search_section"></i>
+                    <span class="links_name">Search</span>
+                </a>
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="/dmPage">
+                    <i class="fa-brands fa-facebook-messenger" id="open_message_section"></i>
+                    <span class="links_name">Messages</span>
+                </a>
+                <span class="tooltip">Messages</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-regular fa-heart" id="open_notification_section"></i>
+                    <span class="links_name">Notifications</span>
+                </a>
+                <span class="tooltip">Notifications</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-regular fa-square-plus" id="open_post_popup"></i>
+                    <span class="links_name">Create</span>
+                </a>
+                <span class="tooltip">Create</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog' id="open_setting_section"></i>
+                    <span class="links_name">Setting</span>
+                </a>
+                <span class="tooltip">Setting</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <a href="/user/<%=admin.userName%>"><img src="/Images/<%=admin.profileImage%>" alt="profileImg"></a>
+                    <div class="name_job">
+                        <div class="name"><%= admin.userName %></div>
+                        <div class="job"><%= admin.name %></div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out"></i>
+            </li>
+        </ul>
+    </div>

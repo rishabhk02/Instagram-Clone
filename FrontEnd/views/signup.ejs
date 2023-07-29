@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style1.css" type="text/css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
+  <title>Social Media App</title>
+  <style>
+    *{
+        color: #000;
+    }
+  </style>
+</head>
+
+  <body style="background-color: #fafafa;">
+    <div class="login_outer_container">
+      <div class="login_inner_container">
+        <div class="outer_login_wrapper">
+          <div id="login_wrapper">
+            <div id="login_logo">
+              <h1>Instagram</h1>
+            </div>
+
+            <form action="/signup" method="post">
+              <div class="login_inner_form">
+                <div class="input_field">
+                  <input type="text" name="email" required>
+                  <span class="placeholder">Email</span>
+                </div>
+                <div class="input_field">
+                  <input type="text" name="name" required>
+                  <span class="placeholder">Full Name</span>
+                </div>
+                <div class="input_field">
+                  <input type="text" name="userName" required>
+                  <span class="placeholder">Username</span>
+                </div>
+                <div class="input_field">
+                  <input type="password" name="password" required>
+                  <span class="placeholder">Password</span>
+                </div>
+              </div>
+              <div class="input_field">
+                <input type="submit" value="Sign Up">
+              </div>
+            </form>
+
+            <div id="login_divider">
+              <div id="left"></div>
+              <div id="center">OR</div>
+              <div id="right"></div>
+            </div>
+
+            <div id="login_creds">
+              <a href="#" id="fb-login"><i class="fab fa-facebook-square fa-lg"></i> <span id="fb">Log in
+                  with Facebook</span></a>
+              <a href="#" id="forgot-pw">Forgot password?</a>
+            </div>
+          </div>
+
+          <p id="no_account">Have an account?
+            <a href="/login">Login</a>
+          </p>
+
+          <div id="download_app_buttons">
+            <p id="get-the-app">Get the app.</p>
+            <img src="Images/playstore.webp" alt="" class="download_buttons" id="ig-app">
+            <img src="Images/appstore.png" alt="" class="download_buttons" id="ig-google">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="login_footer">
+      <div id="footer-links">
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Jobs</a>
+        <a href="#">Help</a>
+        <a href="#">API</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Top Accounts</a>
+        <a href="#">Hashtags</a>
+        <a href="#">Locations</a>
+      </div>
+
+      <div id="copyright">
+        <p>
+          <select>
+            <option>English</option>
+            <option>English UK</option>
+            <option>Netherlands</option>
+          </select>
+          © 2021 Instagram from Facebook
+        </p>
+      </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/c4fc17ef6c.js" crossorigin="anonymous"></script>
+  </body>
+
+  </html>

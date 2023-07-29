@@ -1,0 +1,98 @@
+<%- include('partials/head') %>
+    <!-- Middle Section -->
+    <section class="middle_section"></section>
+
+    <input type="hidden" id="userDetailProfilePage" value="<%= JSON.stringify(user) %>">
+    <section class="profile_page">
+        <div class="profile_header">
+            <div class="left_side">
+                <img src="/Images/<%= user.profileImage %>" alt="">
+            </div>
+            <div class="right_side">
+                <div class="profile_1row">
+                    <p class="userName">
+                        <%= user.userName %>
+                    </p>
+                    <!-- <p><%= user._id %> ,<%= admin.userId %></p> -->
+
+                    <% if(user._id.equals(admin._id)){ %>
+                        <a href="/editProfile">
+                            <div class="edit_profile_btn">Edit Profile</div>
+                        </a>
+                        <i class="fa-solid fa-gear"></i>
+                    <% }else{ %>
+            
+                            <div class="follow_btn" id="flwUnflwbtn">
+                                <% if(user.followers.includes(admin._id)){ %>
+                                    Unfollow
+                                <%}else{ %>
+                                    Follow
+                                <%}%>
+                            </div>
+        
+                        <a href="/dmPage">
+                            <div class="message_btn">Message</div>
+                        </a>
+                    <% } %>
+
+                </div>
+                <div class="profile_2row">
+                    <p class="profile_posts">
+                        <%= user.posts.length %> Posts
+                    </p>
+                    <p class="profile_follower openFlwPopUp" id="getFollower">
+                        <%= user.followers.length %> Followers
+                    </p>
+                    <p class="profile_following openFlwPopUp" id="getFollowing">
+                        <%= user.following.length %> Following
+                    </p>
+                </div>
+                <div class="profile_3row">
+                    <p class="FullName">
+                        <%= user.name %>
+                    </p>
+                    <% if(user.bio){ %>
+                        <p class="bio">
+                            <%= user.bio %>
+                        </p>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile_content_section">
+            <div class="profile_content_header">
+                <p id="user_posts" data-user="<%= user._id %>">Post &nbsp; <i class="fa-solid fa-table-cells-large"></i>
+                </p>
+                <p id="saved_posts" data-user="<%= user._id %>">Saved &nbsp; <i class="fa-regular fa-bookmark"></i></p>
+                <p>Tagged &nbsp; <i class="fa-solid fa-user-tag"></i></p>
+            </div>
+            <div class="profile_content">
+                <% user.posts.forEach(function(post) { %>
+                    <div class="posts">
+                        <img src="/Images/<%= post.postContent.data %>" alt="" id="show_post"
+                            data-pos="<%= JSON.stringify(post) %>">
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <!-- profile page popup -->
+    <section class="profile_page_popup"></section>
+
+    <!-- extra popup -->
+    <section class="extra_pop_up_section"></section>
+
+     <!-- Include Socket Io -->
+     <script src="/socket.io/socket.io.js"></script>
+
+    <script src="/javascript/profilePagje.js"></script>
+    <script src="/javascript/newHomepage.js"></script>
+
+    <script src="https://kit.fontawesome.com/e467b80794.js" crossorigin="anonymous"></script>
+    <!-- Include Axios library -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </body>
+
+    </html>
