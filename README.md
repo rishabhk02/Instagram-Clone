@@ -1,5 +1,5 @@
 
-| <h1>Project Name</h1> | ![Project Logo](path/to/your/image.png) |
+| <h1>Project Name</h1> | ![Project Logo](https://freepngimg.com/save/118546-logo-instagram-free-hd-image/2048x2048) |
 |-----------------------|---------------------------------------|
 
 
