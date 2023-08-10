@@ -1,6 +1,5 @@
 
-| <h1>Project Name</h1> | ![Project Logo](https://freepngimg.com/save/118546-logo-instagram-free-hd-image/2048x2048) |
-|-----------------------|---------------------------------------|
+| <h1>Project Name</h1> | <img src="path/to/your/image.png" alt="Project Logo" height="100"> |
 
 
 ## 👩‍💻 Description
