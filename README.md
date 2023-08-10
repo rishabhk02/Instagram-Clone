@@ -1,7 +1,7 @@
 
 <div style="display: flex; align-items: center;">
   <h1>Instagram Clone</h1>
-  <img src="[path/to/your/image.png](https://freelogopng.com/images/all_img/1658588965instagram-logo-png-transparent-background.png)" alt="Project Logo" width="100" height="100">
+  <img src="https://freelogopng.com/images/all_img/1658588965instagram-logo-png-transparent-background.png" alt="Project Logo" width="100" height="100">
 </div>
 
 
