@@ -1,5 +1,5 @@
 
-| <h1>Project Name</h1> | <img src="path/to/your/image.png" alt="Project Logo" height="100"> |
+# Instagram Clone
 
 
 ## 👩‍💻 Description
