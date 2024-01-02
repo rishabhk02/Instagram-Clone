@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 // mongodb connection
 const connectDb = async () => {
     try {
-        await mongoose.connect(`mongodb+srv://rishabhkumrawat02:Ideafi%4012345@idea-fi.4an7gor.mongodb.net/Idea-Fi?retryWrites=true&w=majority`, {
+        await mongoose.connect(process.env.PORT, {
             useNewUrlParser: true
         });
         console.log("Database Connected Successfully");
