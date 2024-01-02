@@ -14,7 +14,7 @@ const userModel = require('../Models/userModel');
 // Create storage engine for images storing in database
 
 const Storage = new GridFsStorage({
-  url: process.env.MONGO_URI,
+  url: `mongodb+srv://rishabhkumrawat02:Ideafi%4012345@idea-fi.4an7gor.mongodb.net/Idea-Fi?retryWrites=true&w=majority`,
   file: (req, file) => {
     // Generate a unique fileName
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
