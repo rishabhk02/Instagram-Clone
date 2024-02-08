@@ -9,12 +9,12 @@ const jwt = require('jsonwebtoken');
 // for retrieving the image
 const { GridFSBucket } = require('mongodb');
 const userModel = require('../Models/userModel');
+const { Console, log } = require('console');
 
 
 // Create storage engine for images storing in database
-
 const Storage = new GridFsStorage({
-  url: `mongodb+srv://rishabhkumrawat02:Ideafi%4012345@idea-fi.4an7gor.mongodb.net/Idea-Fi?retryWrites=true&w=majority`,
+  url: process.env.URI,
   file: (req, file) => {
     // Generate a unique fileName
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);

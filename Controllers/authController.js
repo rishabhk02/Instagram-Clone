@@ -83,7 +83,7 @@ function authConroller() {
 
             // If password matched successfully than we will Generate a JWT token
             const maxAge = 86400000;
-            const token = jwt.sign({ adminId: user._id }, "thisissecret", { expiresIn: maxAge });
+            const token = jwt.sign({ adminId: user._id }, process.env.SECRETE, { expiresIn: maxAge });
 
             // setting the token cookie to the client side browser
             res.cookie('jwtToken', token, { maxAge: maxAge });

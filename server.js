@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 // mongodb connection
 const connectDb = async () => {
     try {
-        await mongoose.connect(process.env.PORT, {
+        mongoose.connect(process.env.URI, {
             useNewUrlParser: true
         });
         console.log("Database Connected Successfully");

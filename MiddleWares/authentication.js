@@ -11,7 +11,7 @@ function authenticate(req,res,next){
     }
     try {
         // adding user to the request header
-        req.admin=jwt.verify(token,"thisissecret");
+        req.admin=jwt.verify(token,process.env.SECRETE);
         return next();
     } catch (error) {
         console.error(error);
@@ -25,7 +25,7 @@ function unAuthenticate(req,res,next){
         return next();
     }
     try {
-        jwt.verify(token, "thisissecret");
+        jwt.verify(token, process.env.SECRETE);
         return res.status(401).redirect('/');
     } catch (error) {
         return next();
